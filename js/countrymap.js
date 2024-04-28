@@ -1247,7 +1247,7 @@
     var o = (j._pathToRelative = function (t) {
       const e = ut(t)
       if (e.rel) return bt(e.rel);
-      (j.is(t, v) && j.is(t && t[0], v)) || (t = j.parsePathString(t))
+      (j.is(t, v) && j.is(t?.[0], v)) || (t = j.parsePathString(t))
       const r = []
       let i = 0
       let n = 0
@@ -1305,7 +1305,7 @@
       const e = ut(t)
       if (e.abs) return bt(e.abs)
       if (
-        ((j.is(t, v) && j.is(t && t[0], v)) || (t = j.parsePathString(t)),
+        ((j.is(t, v) && j.is(t?.[0], v)) || (t = j.parsePathString(t)),
         !t || !t.length)
       ) {
         return [['M', 0, 0]]
@@ -1557,7 +1557,7 @@
             for (let r = t[e]; r.length;) {
               t.splice(e++, 0, ['C'][M](r.splice(0, 6)))
             }
-            t.splice(e, 1), (c = _(a.length, (o && o.length) || 0))
+            t.splice(e, 1), (c = _(a.length, (o?.length) || 0))
           }
         }
         function s (t, e, r, i, n) {
@@ -1570,7 +1570,7 @@
               (r.by = 0),
               (r.x = t[n][1]),
               (r.y = t[n][2]),
-              (c = _(a.length, (o && o.length) || 0)))
+              (c = _(a.length, (o?.length) || 0)))
         }
         for (
           var a = _t(t),
@@ -1596,7 +1596,7 @@
               qy: null
             },
             u = 0,
-            c = _(a.length, (o && o.length) || 0);
+            c = _(a.length, (o?.length) || 0);
           u < c;
           u++
         ) {
@@ -1607,7 +1607,7 @@
           s(a, o, l, h, u),
           s(o, a, h, l, u)
           const f = a[u]
-          const p = o && o[u]
+          const p = o?.[u]
           const d = f.length
           const g = o && p.length;
           (l.x = f[d - 2]),
@@ -2129,7 +2129,7 @@
                           var e = zt(t),
                             r = t,
                             i = 0,
-                            n = t.targetTouches && t.targetTouches.length;
+                            n = t.targetTouches?.length;
                           i < n;
                           i++
                         ) {
@@ -2310,20 +2310,20 @@
     }),
     (K.circle = function (t, e, r) {
       r = j._engine.circle(this, t || 0, e || 0, r || 0)
-      return this.__set__ && this.__set__.push(r), r
+      return this.__set__?.push(r), r
     }),
     (K.rect = function (t, e, r, i, n) {
       n = j._engine.rect(this, t || 0, e || 0, r || 0, i || 0, n || 0)
-      return this.__set__ && this.__set__.push(n), n
+      return this.__set__?.push(n), n
     }),
     (K.ellipse = function (t, e, r, i) {
       i = j._engine.ellipse(this, t || 0, e || 0, r || 0, i || 0)
-      return this.__set__ && this.__set__.push(i), i
+      return this.__set__?.push(i), i
     }),
     (K.path = function (t) {
       !t || j.is(t, u) || j.is(t[0], v) || (t += '')
       const e = j._engine.path(j.format[x](j, arguments), this)
-      return this.__set__ && this.__set__.push(e), e
+      return this.__set__?.push(e), e
     }),
     (K.image = function (t, e, r, i, n) {
       n = j._engine.image(
@@ -2334,18 +2334,18 @@
         i || 0,
         n || 0
       )
-      return this.__set__ && this.__set__.push(n), n
+      return this.__set__?.push(n), n
     }),
     (K.text = function (t, e, r) {
       r = j._engine.text(this, t || 0, e || 0, P(r))
-      return this.__set__ && this.__set__.push(r), r
+      return this.__set__?.push(r), r
     }),
     (K.set = function (t) {
       j.is(t, 'array') ||
             (t = Array.prototype.splice.call(arguments, 0, arguments.length))
       const e = new re(t)
       return (
-        this.__set__ && this.__set__.push(e),
+        this.__set__?.push(e),
         (e.paper = this),
         (e.type = 'set'),
         e
@@ -2407,7 +2407,7 @@
       }
       return (
         l == this.canvas.parentNode && (l = o),
-        (l = l && l.raphael ? this.getById(l.raphaelid) : null)
+        (l = l?.raphael ? this.getById(l.raphaelid) : null)
       )
     }),
     (K.getElementsByBBox = function (e) {
@@ -2472,7 +2472,7 @@
     (qt.clone = function () {
       if (this.removed) return null
       const t = this.paper[this.type]().attr(this.attr())
-      return this.__set__ && this.__set__.push(t), t
+      return this.__set__?.push(t), t
     }),
     (qt.glow = function (t) {
       if (this.type == 'text') return null
@@ -3097,7 +3097,7 @@
     }
     (qt.animateWith = function (t, e, r, i, n, s) {
       const a = this
-      if (a.removed) return s && s.call(a), a
+      if (a.removed) return s?.call(a), a
       s = r instanceof Jt ? r : j.animation(r, i, n, s)
       Kt(s, a, s.percents[0], null, a.attr())
       for (let o = 0, l = Ht.length; o < l; o++) {
@@ -3145,7 +3145,7 @@
     }),
     (qt.animate = function (t, e, r, i) {
       const n = this
-      if (n.removed) return i && i.call(n), n
+      if (n.removed) return i?.call(n), n
       i = t instanceof Jt ? t : j.animation(t, e, r, i)
       return Kt(i, n, i.percents[0], null, n.attr()), n
     }),
@@ -3469,11 +3469,10 @@
             : ((p = (c && i.glyphs[h[v - 1]]) || {}),
               (d = i.glyphs[h[v]]),
               (u += c
-                ? (p.w || i.w) + ((p.k && p.k[h[v]]) || 0) + i.w * a
+                ? (p.w || i.w) + ((p.k?.[h[v]]) || 0) + i.w * a
                 : 0),
               (c = 1)),
-          d &&
-                  d.d &&
+          d?.d &&
                   (f += j.transformPath(d.d, [
                     't',
                     u * l,
@@ -3883,8 +3882,7 @@
                   var u
                   var l = C(a).split(_)
                   l.length == 4 &&
-                        (t.clip &&
-                          t.clip.parentNode.parentNode.removeChild(
+                        (t.clip?.parentNode.parentNode.removeChild(
                             t.clip.parentNode
                           ),
                         (h = L('clipPath')),
@@ -4157,7 +4155,7 @@
         ((o.prototype = t).constructor = o),
         (j._engine.path = function (t, e) {
           const r = L('path')
-          e.canvas && e.canvas.appendChild(r)
+          e.canvas?.appendChild(r)
           e = new o(r, e)
           return (
             (e.type = 'path'),
@@ -4242,7 +4240,7 @@
           if (!this.removed && this.node.parentNode) {
             let t
             const e = this.paper
-            for (t in (e.__set__ && e.__set__.exclude(this),
+            for (t in (e.__set__?.exclude(this),
             f.unbind('raphael.*.*.' + this.id),
             this.gradient && e.defs.removeChild(this.gradient),
             j._tear(this, e),
@@ -4411,7 +4409,7 @@
         }),
         (j._engine.circle = function (t, e, r, i) {
           const n = L('circle')
-          t.canvas && t.canvas.appendChild(n)
+          t.canvas?.appendChild(n)
           t = new o(n, t)
           return (
             (t.attrs = {
@@ -4428,7 +4426,7 @@
         }),
         (j._engine.rect = function (t, e, r, i, n, s) {
           const a = L('rect')
-          t.canvas && t.canvas.appendChild(a)
+          t.canvas?.appendChild(a)
           t = new o(a, t)
           return (
             (t.attrs = {
@@ -4449,7 +4447,7 @@
         }),
         (j._engine.ellipse = function (t, e, r, i, n) {
           const s = L('ellipse')
-          t.canvas && t.canvas.appendChild(s)
+          t.canvas?.appendChild(s)
           t = new o(s, t)
           return (
             (t.attrs = {
@@ -4475,7 +4473,7 @@
             preserveAspectRatio: 'none'
           }),
           a.setAttributeNS(w, 'href', e),
-          t.canvas && t.canvas.appendChild(a)
+          t.canvas?.appendChild(a)
           t = new o(a, t)
           return (
             (t.attrs = { x: r, y: i, width: n, height: s, src: e }),
@@ -4485,7 +4483,7 @@
         }),
         (j._engine.text = function (t, e, r, i) {
           const n = L('text')
-          t.canvas && t.canvas.appendChild(n)
+          t.canvas?.appendChild(n)
           t = new o(n, t)
           return (
             (t.attrs = {
@@ -4514,7 +4512,7 @@
         }),
         (j._engine.create = function () {
           var t = j._getContainer.apply(0, arguments)
-          let e = t && t.container
+          let e = t?.container
           var r = t.x
           var i = t.y
           let n = t.width
@@ -4616,8 +4614,7 @@
         }),
         (j.prototype.remove = function () {
           for (const t in (f('raphael.remove', this),
-          this.canvas.parentNode &&
-                  this.canvas.parentNode.removeChild(this.canvas),
+          this.canvas.parentNode?.removeChild(this.canvas),
           this)) {
             this[t] =
                     typeof this[t] === 'function' ? j._removedFactory(t) : null
@@ -4994,13 +4991,13 @@
           ) {
             d.paper.canvas.style.display = ''
             var h = d.paper.span
-            var g = u.font && u.font.match(/\d+(?:\.\d*)?(?=px)/)
+            var g = u.font?.match(/\d+(?:\.\d*)?(?=px)/)
             var c = h.style
             u.font && (c.font = u.font),
             u['font-family'] && (c.fontFamily = u['font-family']),
             u['font-weight'] && (c.fontWeight = u['font-weight']),
             u['font-style'] && (c.fontStyle = u['font-style']),
-            (g = w(u['font-size'] || (g && g[0])) || 10),
+            (g = w(u['font-size'] || (g?.[0])) || 10),
             (c.fontSize = 100 * g + 'px'),
             d.textpath.string &&
                     (h.innerHTML = _(d.textpath.string)
@@ -5242,12 +5239,11 @@
         }),
         (t.remove = function () {
           if (!this.removed && this.node.parentNode) {
-            for (const t in (this.paper.__set__ &&
-                    this.paper.__set__.exclude(this),
+            for (const t in (this.paper.__set__?.exclude(this),
             j.eve.unbind('raphael.*.*.' + this.id),
             j._tear(this, this.paper),
             this.node.parentNode.removeChild(this.node),
-            this.shape && this.shape.parentNode.removeChild(this.shape),
+            this.shape?.parentNode.removeChild(this.shape),
             this)) {
               this[t] =
                       typeof this[t] === 'function'
@@ -6706,7 +6702,7 @@ const simplemaps_countrymap_mapinfo = {
         }
       },
       delete_element: function e (t) {
-        t.parentNode && t.parentNode.removeChild(t)
+        t.parentNode?.removeChild(t)
       },
       to_float: function e (t) {
         const o = parseFloat(t)
@@ -6972,10 +6968,10 @@ const simplemaps_countrymap_mapinfo = {
     const t7 = tz.plugin_hooks
     function t2 (e, t) {
       var o = t4[e]
-      o && o.apply(null, t)
+      o?.apply(null, t)
       for (let i = tz.plugin_hooks[e], n = 0; n < i.length; n++) {
         var o = i[n]
-        o && o.apply(null, t)
+        o?.apply(null, t)
       }
     }
     var y = void 0 === t5.main_settings.div ? 'map' : t5.main_settings.div
@@ -7078,8 +7074,7 @@ const simplemaps_countrymap_mapinfo = {
     }
     function tS (e) {
       if (
-        t5.legend &&
-        t5.legend.entries &&
+        t5.legend?.entries &&
         !(t5.legend.entries.length < 1) &&
         (!ea || !er)
       ) {
@@ -7435,7 +7430,7 @@ const simplemaps_countrymap_mapinfo = {
           eZ[e] = !0
         }
         for (var e in t5.state_specific) {
-          t5.state_specific[e] && t5.state_specific[e].path && (eZ[e] = !0)
+          t5.state_specific[e]?.path && (eZ[e] = !0)
         }
         for (var e in eZ) eK(e)
       })(),
@@ -7879,8 +7874,7 @@ const simplemaps_countrymap_mapinfo = {
           e.stop(),
           e.attr({ 'fill-opacity': 1 }),
           e.sm.labels.forEach(function (e) {
-            e.sm &&
-                e.sm.pill &&
+            e.sm?.pill &&
                 (e.sm.pill.stop(), e.sm.pill.attr({ 'fill-opacity': 1 }))
           }),
           e.animate(
@@ -8895,7 +8889,7 @@ const simplemaps_countrymap_mapinfo = {
       eF.toBack(),
       ej.toBack(),
       eE.toBack(),
-      e7 && e7.toFront(),
+      e7?.toFront(),
       eL.toFront(),
       eO.toFront(),
       e4.toFront()
@@ -9224,7 +9218,7 @@ const simplemaps_countrymap_mapinfo = {
         ) {
           ed.removeChild(ef)
           const t = document.getElementById('tt_sm_' + y)
-          t && t.parentNode.removeChild(t)
+          t?.parentNode.removeChild(t)
         }
         (ef = document.createElement('div')),
         (ep = document.createElement('div')),
@@ -9407,8 +9401,7 @@ const simplemaps_countrymap_mapinfo = {
                 e &&
                 (e.clientX &&
                   ((F = e.clientY - o.top), (O = e.clientX - o.left)),
-                e.touches &&
-                  e.touches[0] &&
+                e.touches?.[0] &&
                   ((F = e.touches[0].clientY - o.top),
                   (O = e.touches[0].clientX - o.left))),
               !tT && !x && !u && (!k || !el) && t1.set_pos(F, O)
@@ -9417,8 +9410,7 @@ const simplemaps_countrymap_mapinfo = {
               if (D) {
                 if (
                   !(
-                    o &&
-                    o.sm.on_click &&
+                    o?.sm.on_click &&
                     (P == 'yes' || (P == 'auto' && ey < 401))
                   ) &&
                   e &&
@@ -9975,7 +9967,7 @@ const simplemaps_countrymap_mapinfo = {
             !tN && !oR && ((ob = !1), this.id || !this.type != 'set'))
           ) {
             const o = oh(this)
-            if (o && o.sm && !o.sm.inactive) {
+            if (o?.sm && !o.sm.inactive) {
               if ((oT(o), el)) (k && !0 !== e) || (o0(o, t), (o3 = o))
               else {
                 if ((t1.hide(), o$(o))) {
@@ -10003,8 +9995,7 @@ const simplemaps_countrymap_mapinfo = {
           if (!tN && !tD && !tR) {
             const o = oh(this)
             if (
-              o &&
-                  o.sm &&
+              o?.sm &&
                   !o.sm.inactive &&
                   ((o.sm.on_click && !o.sm.popup_off) || !e)
             ) {
@@ -10037,7 +10028,7 @@ const simplemaps_countrymap_mapinfo = {
                   ) {
                     oF(o, t),
                     oj(),
-                    w && w.sm
+                    w?.sm
                       ? t0.call(w, !0, function () {
                         oe(o), (w = o)
                       })
@@ -10110,7 +10101,7 @@ const simplemaps_countrymap_mapinfo = {
           } else {
             const t = oi(tc, tl[g])
             const o = tc.sm.type == 'manual' && t ? tl[g] : tl[-1]
-            w && w.sm && w.sm.type != 'region'
+            w?.sm && w.sm.type != 'region'
               ? t0.call(w, !0, function () {
                 oe(o)
               })
@@ -10334,18 +10325,17 @@ const simplemaps_countrymap_mapinfo = {
     if (
       ((function e (t, o) {
         var i = d.hooks[t]
-        i && i.apply(null, o)
+        i?.apply(null, o)
         for (let n = d.plugin_hooks[t], r = 0; r < n.length; r++) {
           var i = n[r]
-          i && i.apply(null, o)
+          i?.apply(null, o)
         }
       })('ready'),
       !window[e].loaded)
     ) {
       for (let t = 0; t < u.length; t++) {
         const o = u[t]
-        o &&
-            o.mapdata &&
+        o?.mapdata &&
             o.mapdata.main_settings.auto_load != 'no' &&
             (function (e) {
               setTimeout(function () {
