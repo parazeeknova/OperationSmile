@@ -1557,7 +1557,7 @@
             for (let r = t[e]; r.length;) {
               t.splice(e++, 0, ['C'][M](r.splice(0, 6)))
             }
-            t.splice(e, 1), (c = _(a.length, (o?.length) || 0))
+            t.splice(e, 1), (c = _(a.length, o?.length || 0))
           }
         }
         function s (t, e, r, i, n) {
@@ -1570,7 +1570,7 @@
               (r.by = 0),
               (r.x = t[n][1]),
               (r.y = t[n][2]),
-              (c = _(a.length, (o?.length) || 0)))
+              (c = _(a.length, o?.length || 0)))
         }
         for (
           var a = _t(t),
@@ -1596,7 +1596,7 @@
               qy: null
             },
             u = 0,
-            c = _(a.length, (o?.length) || 0);
+            c = _(a.length, o?.length || 0);
           u < c;
           u++
         ) {
@@ -2344,12 +2344,7 @@
       j.is(t, 'array') ||
             (t = Array.prototype.splice.call(arguments, 0, arguments.length))
       const e = new re(t)
-      return (
-        this.__set__?.push(e),
-        (e.paper = this),
-        (e.type = 'set'),
-        e
-      )
+      return this.__set__?.push(e), (e.paper = this), (e.type = 'set'), e
     }),
     (K.setStart = function (t) {
       this.__set__ = t || this.set()
@@ -3468,9 +3463,7 @@
             ? ((c = d = u = 0), (y += x * o))
             : ((p = (c && i.glyphs[h[v - 1]]) || {}),
               (d = i.glyphs[h[v]]),
-              (u += c
-                ? (p.w || i.w) + ((p.k?.[h[v]]) || 0) + i.w * a
-                : 0),
+              (u += c ? (p.w || i.w) + (p.k?.[h[v]] || 0) + i.w * a : 0),
               (c = 1)),
           d?.d &&
                   (f += j.transformPath(d.d, [
@@ -3883,8 +3876,8 @@
                   var l = C(a).split(_)
                   l.length == 4 &&
                         (t.clip?.parentNode.parentNode.removeChild(
-                            t.clip.parentNode
-                          ),
+                          t.clip.parentNode
+                        ),
                         (h = L('clipPath')),
                         (u = L('rect')),
                         (h.id = j.createUUID()),
@@ -4997,7 +4990,7 @@
             u['font-family'] && (c.fontFamily = u['font-family']),
             u['font-weight'] && (c.fontWeight = u['font-weight']),
             u['font-style'] && (c.fontStyle = u['font-style']),
-            (g = w(u['font-size'] || (g?.[0])) || 10),
+            (g = w(u['font-size'] || g?.[0]) || 10),
             (c.fontSize = 100 * g + 'px'),
             d.textpath.string &&
                     (h.innerHTML = _(d.textpath.string)
