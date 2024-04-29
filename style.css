@@ -974,8 +974,8 @@ p:nth-of-type(3) {
   object-fit: contain;
   mix-blend-mode: color-burn;
 }
-.sponsors-section img:hover{
-  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1); 
+.sponsors-section img:hover {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
   will-change: transform;
   cursor: pointer;
   border: #383838 solid;
