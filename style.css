@@ -1188,7 +1188,7 @@ p:nth-of-type(3) {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgb(36, 36, 36,0.8);
+  background: rgb(36, 36, 36, 0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 9998; /* This should be lower than the z-index of .progress-loader */
@@ -1202,7 +1202,7 @@ p:nth-of-type(3) {
 }
 
 .progress {
-  content: '';
+  content: "";
   width: 1px;
   height: 3px;
   border-radius: 7px;
