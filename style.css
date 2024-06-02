@@ -317,7 +317,7 @@ img {
 }
 .parallax-0 {
   height: 100vh;
-  background: url('image/logo.png') no-repeat;
+  background: url("image/logo.png") no-repeat;
   background-size: contain;
   background-position: center;
   background-attachment: fixed;
@@ -1206,11 +1206,15 @@ p:nth-of-type(3) {
 }
 
 .dash {
-  animation: dashArray 2s ease-in-out infinite, dashOffset 2s linear infinite;
+  animation:
+    dashArray 2s ease-in-out infinite,
+    dashOffset 2s linear infinite;
 }
 
 .spin {
-  animation: spinDashArray 2s ease-in-out infinite, spin 8s ease-in-out infinite,
+  animation:
+    spinDashArray 2s ease-in-out infinite,
+    spin 8s ease-in-out infinite,
     dashOffset 2s linear infinite;
   transform-origin: center;
 }
