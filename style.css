@@ -317,7 +317,7 @@ img {
 }
 .parallax-0 {
   height: 100vh;
-  background: url('image/logo.png') no-repeat;
+  background: url("image/logo.png") no-repeat;
   background-size: contain;
   background-position: center;
   background-attachment: fixed;
