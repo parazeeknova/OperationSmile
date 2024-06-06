@@ -69,6 +69,6 @@ document.getElementById("mode-toggle").addEventListener("click", function () {
   }
 });
 
-window.addEventListener('load', function() {
-  document.querySelector('.background-loader').style.display = 'none';
+window.addEventListener("load", function () {
+  document.querySelector(".background-loader").style.display = "none";
 });
